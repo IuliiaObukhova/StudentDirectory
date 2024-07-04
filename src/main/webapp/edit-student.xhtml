@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  >
+  <!-- View that edits existing student -->
+
+  <h:head>
+    <!-- Title of tab/window in browser -->
+    <title>#{uiconsts['updateLabel']}</title>
+  </h:head>
+  <h:body>
+    <h2>#{uiconsts['updateLabel']}</h2>
+    <br/>
+     <h:form>
+
+	    <h:outputText value="#{uiconsts['columnLabel_FirstName']}" />
+	    <h:inputText value="#{existingStudent.firstName}"/>
+	
+		<br />
+	    
+	    <h:outputText value="#{uiconsts['columnLabel_LastName']}" />
+	    <h:inputText value="#{existingStudent.lastName}"/>
+	
+		<br />
+		
+	    <h:outputText value="#{uiconsts['columnLabel_PhoneNumber']}" />
+	    <h:inputText value="#{existingStudent.phoneNumber}"/>
+	    
+	    <br />
+	    
+	    
+	    <h:outputText value="#{uiconsts['columnLabel_Program']}" />
+	    <h:selectOneMenu value="#{existingStudent.program}">
+        <f:selectItems value="#{studentController.programs}" />
+      </h:selectOneMenu>
+	    <br />
+	    <h:outputText value="#{uiconsts['columnLabel_Email']}" />
+	    <h:inputText value="#{existingStudent.email}"/>
+	    
+	    <br />
+	    
+	    <h:commandButton value="#{uiconsts['updateLabel']}"
+	    	action="#{studentController.submitUpdatedStudent(existingStudent)}" />
+    
+    </h:form>
+    <h:outputLink value="list-students.xhtml">Back</h:outputLink>
+  </h:body>
+</html>
